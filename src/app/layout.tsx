@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 import '@mantine/core/styles.css';
-import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Rick and Morty Dashboard",
-  description: "Simple Rick and Morty's dashboard which uses a respective API",
-};
+import theme from '@/shared/config/theme';
+import "./globals.css";
+import { StoreProvider } from "@/shared/config/StoreProvider";
 
 export default function RootLayout({
   children,
@@ -20,7 +17,9 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <StoreProvider>
+          <MantineProvider theme={theme}>{children}</MantineProvider>
+        </StoreProvider>
       </body>
     </html>
   );

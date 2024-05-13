@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Dashboard",
-    description: "See a list of your favorite characters"
+    title: "Template's main page",
+    description: "Basically, there is nothing here."
 }
 
 type Props = {
