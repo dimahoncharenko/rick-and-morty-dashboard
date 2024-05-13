@@ -1,9 +1,14 @@
-import { Box, Text } from "@mantine/core";
+import Hero from "@/components/Hero";
+import Header from "@/modules/Header";
+import { Box } from "@mantine/core";
 
 export default function Page() {
     return (
-        <Box>
-            <Text>Hehe, it works!</Text>
-        </Box>
+        <>
+            <Box className="bg-black">
+                <Header />
+            </Box>
+            <Hero />
+        </>
     );
 }
