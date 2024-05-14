@@ -6,14 +6,19 @@ export type BackendResponse<T> = {
         prev: null | string;
     },
     results: T[]
-} 
+}
 
-export type Status = "Alive" | "Dead" | "Unknown";
-export type Gender = "Female" | "Male" | "Genderless" | "Unknown";
+export type Status = "Alive" | "Dead" | "unknown";
+export type Gender = "Female" | "Male" | "Genderless" | "unknown";
 
-export type Character = {
+type Entity = {
     id: number;
     name: string;
+    url: string;
+    created: string;
+}
+
+export type Character = Entity & {
     status: Status;
     species: string;
     type: string;
@@ -22,8 +27,22 @@ export type Character = {
         name: string;
         url: string;
     },
+    location: {
+        name: string;
+        url: string;
+    },
     image: string;
     episode: string[];
-    url: string;
-    created: string;
+}
+
+export type Episode = Entity & {
+    air_date: string;
+    episode: string;
+    characters: string[];
+}
+
+export type Location = Entity & {
+    type: string;
+    dimension: string;
+    residents: string[];
 }

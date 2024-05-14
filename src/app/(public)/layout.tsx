@@ -1,3 +1,6 @@
+import Hero from "@/components/Hero";
+import Header from "@/modules/Header";
+import { Box } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +13,14 @@ type Props = {
 }
 export default function Layout({ children }: Props) {
     return (
-        <>{children}</>
+        <>
+            <Box className="shadow-md py-4">
+                <Header />
+            </Box>
+            
+            <Hero />
+
+            {children}
+        </>
     )
 }

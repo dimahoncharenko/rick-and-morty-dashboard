@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 251, 254, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -18,10 +18,15 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .filter-input {
+    @apply p-5 pl-10;
   }
 }

@@ -1,0 +1,11 @@
+.paginationOptions {
+    @apply text-[#6a6a6a] overflow-hidden flex justify-center gap-0 rounded border border-[#c6c6d3];
+}
+
+.paginationControl {
+    @apply text-inherit relative flex h-10 w-10 items-center justify-center rounded-none border-transparent before:absolute before:-left-[2px] before:-top-[1px] before:h-10 before:w-[1px] before:bg-[#c6c6d3] after:absolute after:-right-[1px] after:-top-[1px] after:h-10 after:w-[1px] after:bg-[#c6c6d3] first:w-24 first:before:hidden first:after:hidden last:w-16 last:before:hidden last:after:hidden data-[active=true]:bg-[#5c5cee] data-[active=true]:text-white;
+}
+
+.paginationDots {
+    @apply flex h-10 w-10 items-center justify-center;
+}
