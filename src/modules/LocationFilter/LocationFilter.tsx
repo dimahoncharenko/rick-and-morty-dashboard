@@ -27,7 +27,7 @@ export default function LocationFilter() {
     return (
         <form className="flex flex-col md:flex-row gap-2 justify-evenly py-4">
             <TextInput leftSection={<Search size={16}/>} placeholder="Name" defaultValue={name} onChange={e => setName(e.target.value)} classNames={{ input: "filter-input" }} />
-            <TextInput leftSection={<LucideType size={16} />} placeholder="Episode" defaultValue={type} onChange={e => setType(e.target.value)} classNames={{ input: "filter-input" }} />
+            <TextInput leftSection={<LucideType size={16} />} placeholder="Type" defaultValue={type} onChange={e => setType(e.target.value)} classNames={{ input: "filter-input" }} />
             <TextInput leftSection={<LandPlot size={16} />} placeholder="Dimension" defaultValue={dimension} onChange={e => setDimension(e.target.value)} classNames={{ input: "filter-input" }} />
         </form>
     );
