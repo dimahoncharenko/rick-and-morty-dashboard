@@ -9,7 +9,7 @@ import PaginationBar from "../PaginationBar";
 
 export default function Episodes() {
     const searchParams = useSearchParams();
-    const { data, isLoading } = useFindManyQuery({ 
+    const { data, isLoading, isError, error } = useFindManyQuery({ 
         name: searchParams.get("name"),
         episode: searchParams.get("episode"),
         page: searchParams.get("page") || "1",
@@ -18,6 +18,8 @@ export default function Episodes() {
     const router = useRouter();
 
     if (isLoading) return <p>Loading...</p>
+    // @ts-ignore
+    if (isError && error.status === 404) return <p className="error-text">Not found such records</p>
 
     const copyParams = () => {
         const params = new URLSearchParams();

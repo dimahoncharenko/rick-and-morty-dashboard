@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Locations() {
     const searchParams = useSearchParams();
-    const { data, isLoading } = useFindManyQuery({ 
+    const { data, isLoading, isError, error } = useFindManyQuery({ 
         name: searchParams.get("name"),
         dimension: searchParams.get("dimension"),
         type: searchParams.get("type"),
@@ -18,6 +18,8 @@ export default function Locations() {
     const router = useRouter();
 
     if (isLoading) return <p>Loading...</p>
+    // @ts-ignore
+    if (isError && error.status === 404) return <p className="error-text">Not found such records</p>
 
     const copyParams = () => {
         const params = new URLSearchParams();

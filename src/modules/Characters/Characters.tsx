@@ -13,7 +13,7 @@ export default function Characters() {
     const router = useRouter();
 
     // Fetches characters from /character, but if there is a sorting then it's omitted
-    const { data, isLoading } = useFindManyQuery({
+    const { data, isLoading, error, isError } = useFindManyQuery({
         name: searchParams.get("name"),
         gender: searchParams.get("gender") as Gender,
         status: searchParams.get("status") as Status,
@@ -22,6 +22,8 @@ export default function Characters() {
     });
 
     if (isLoading) return <p>Loading...</p>
+    // @ts-ignore
+    if (isError && error.status === 404) return <p className="error-text">Not found such records</p>
 
     // If there are filters, copy them and change the page accordingly
     const copyParams = () => {

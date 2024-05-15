@@ -29,4 +29,8 @@ body {
   .filter-input {
     @apply p-5 pl-10;
   }
+
+  .error-text {
+    @apply rounded-md border-[#ababd1] border-2 p-2 bg-[#f2f2ff] text-[#6d6d73] font-black font-lato;
+  }
 }
