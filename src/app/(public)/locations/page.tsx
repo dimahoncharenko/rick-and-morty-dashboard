@@ -6,7 +6,7 @@ export default function Page() {
     return (
         <Container>
             <LocationFilter />
-           <Locations />
+            <Locations />
         </Container>
     )
 }

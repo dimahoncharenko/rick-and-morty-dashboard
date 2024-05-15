@@ -1,5 +1,6 @@
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Lato } from "next/font/google";
+import { Suspense } from 'react';
 
 import '@mantine/core/styles.css';
 
@@ -27,7 +28,11 @@ export default function RootLayout({
       </head>
       <body className={`${lato.variable} antialiased`}>
         <StoreProvider>
-          <MantineProvider theme={theme}>{children}</MantineProvider>
+          <MantineProvider theme={theme}>
+            <Suspense fallback={<p>Loading...</p>}>
+              {children}
+            </Suspense>
+            </MantineProvider>
         </StoreProvider>
       </body>
     </html>
