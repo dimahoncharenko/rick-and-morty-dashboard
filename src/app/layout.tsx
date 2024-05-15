@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <ColorSchemeScript />
       </head>
       <body className={`${lato.variable} antialiased`}>

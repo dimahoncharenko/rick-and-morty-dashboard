@@ -1,6 +1,6 @@
 "use client";
 
-import { Radio } from "@mantine/core";
+import { LoadingOverlay, Radio } from "@mantine/core";
 import { useSearchParams } from "next/navigation";
 
 type Sort = {
@@ -9,13 +9,14 @@ type Sort = {
 }
 
 type Props<T> = {
-    raw: T[];
+    raw?: T[];
+    isLoading: boolean;
     changeSort: (sort: string) => void;
     children(sorted: T[]): React.ReactNode;
 }
-export default function Sort<T extends { name: string },>({ raw, changeSort, children }: Props<T>) {
+export default function Sort<T extends { name: string },>({ raw, changeSort, children, isLoading }: Props<T>) {
     const searchParams = useSearchParams();
-  
+
     const sorted = (array: T[]) => array.sort((obj1, obj2) => {
         const sortingBy = searchParams.get("sort") || "desc";
 
@@ -34,12 +35,15 @@ export default function Sort<T extends { name: string },>({ raw, changeSort, chi
 
     return (
         <>
+            <LoadingOverlay visible={isLoading} />
+
             <Radio.Group classNames={{ root: "my-4" }} name="sort" value={searchParams.get("sort") || "desc"} onChange={changeSort}>
                 <Radio value="desc" label="Sort in descending order" />
                 <Radio classNames={{ root: "my-2" }} value="asc" label="Sort in ascending order" />
             </Radio.Group>
 
-           {children(sorted(raw.slice(0)))}
+            {!isLoading && children(sorted(raw!.slice(0)))}
+
         </>
     );
 }

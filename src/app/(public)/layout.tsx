@@ -4,8 +4,8 @@ import { Box } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Rick And Marty",
-    description: "Dashboard of Rick and Morty's characters"
+    title: "Rick And Morty Dashboard",
+    description: "Unravel the Mystery! Who is who in Rick and Morty?"
 }
 
 type Props = {

@@ -21,7 +21,6 @@ export default function Characters() {
         page: searchParams.get("page") || "1",
     });
 
-    if (isLoading) return <p>Loading...</p>
     // @ts-ignore
     if (isError && error.status === 404) return <p className="error-text">Not found such records</p>
 
@@ -33,7 +32,7 @@ export default function Characters() {
         searchParams.has("gender") && params.append("gender", searchParams.get("gender")!);
         searchParams.has("status") && params.append("status", searchParams.get("status")!);
         searchParams.has("type") && params.append("type", searchParams.get("type")!);
-    
+
         return params;
     }
 
@@ -55,18 +54,17 @@ export default function Characters() {
 
     return (
         <>
-            {data && data.results.length > 0 && (
-                <Sort raw={data.results} changeSort={changeSort}>
-                    {sorted =>
-                        <>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                {sorted.map((item) => <CharacterCard key={item.id} item={item} />)}
-                            </div>
-                            {data.info.pages && data.info.pages > 0 && <PaginationBar total={data?.info.pages} value={searchParams.has("page") ? Number(searchParams.get("page")) : 1} onChange={changePage} />}
-                        </>
-                    }
-                </Sort>
-            )}
+            <Sort raw={data?.results} isLoading={isLoading} changeSort={changeSort}>
+                {sorted =>
+                    <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {sorted.map((item) => <CharacterCard key={item.id} item={item} />)}
+                        </div>
+                        {data?.info.pages && data.info.pages > 0 && <PaginationBar total={data?.info.pages} value={searchParams.has("page") ? Number(searchParams.get("page")) : 1} onChange={changePage} />}
+                    </>
+                }
+            </Sort>
+
         </>
     );
 }
