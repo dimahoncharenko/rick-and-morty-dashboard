@@ -1,10 +1,11 @@
 "use client";
 
-import { useFindManyQuery } from "@/shared/api/episodeApi";
+import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
+
+import { useFindManyQuery } from "@/shared/api/episodeApi";
 import Sort from "../Sort";
 import PaginationBar from "../PaginationBar";
-import Link from "next/link";
 
 export default function Episodes() {
     const searchParams = useSearchParams();
@@ -32,7 +33,7 @@ export default function Episodes() {
 
         searchParams.has("sort") && params.append("sort", searchParams.get("sort")!);
         params.append("page", page.toString());
-        router.push(`/episode/?${params}`);
+        router.push(`/episodes/?${params}`);
     }
 
     const changeSort = (sort: string) => {
@@ -40,7 +41,7 @@ export default function Episodes() {
 
         params.append("sort", sort);
         searchParams.has("page") && params.append("page", searchParams.get("page")!);
-        router.push(`/episode/?${params}`);
+        router.push(`/episodes/?${params}`);
     }
 
     return (
