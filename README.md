@@ -12,7 +12,7 @@
 
 ## Tech Stack
 
-- **Frontend**: Built using modern web technologies (e.g., React, TypeScript).  
+- **Frontend**: Built using modern web technologies (e.g., Next.js, TypeScript).  
 - **API Integration**: Fetches dynamic content directly from the Rick and Morty API.  
 - **Styling**: Clean and minimal UI for effortless exploration.  
 
