@@ -1,4 +1,20 @@
-This is a simplistic template for nextjs/mantine setup
+# Rick and Morty Explorer
+
+**Rick and Morty Explorer** is a simple and intuitive web app designed for fans of the *Rick and Morty* series. This app provides an interactive interface for exploring characters, episodes, and locations from the show, all powered by the [Rick and Morty API](https://rickandmortyapi.com/).
+
+## Features
+
+- **Characters**: Browse the complete list of characters with details like name, status, species, and origin.  
+- **Episodes**: View episodes, including their titles, air dates, and the characters featured in each.  
+- **Locations**: Explore the diverse locations from the universe, along with their type and resident characters.  
+- **Responsive Design**: Enjoy seamless navigation on desktop and mobile devices.  
+- **Lightweight**: Fast and efficient app for smooth performance.  
+
+## Tech Stack
+
+- **Frontend**: Built using modern web technologies (e.g., React, TypeScript).  
+- **API Integration**: Fetches dynamic content directly from the Rick and Morty API.  
+- **Styling**: Clean and minimal UI for effortless exploration.  
 
 ## Commands
 
@@ -10,7 +26,7 @@ npm run dev
 yarn dev
 ```
 
-Or you can build the project by:
+Or you can build app by:
 
 ```bash
 npm run build
